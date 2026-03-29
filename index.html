@@ -3,1493 +3,672 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Europe Spring Trip 2025</title>
+<title>Europe Trip · Apr 2–14, 2025</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #F5F0E8;
-    --ink: #1A1614;
-    --warm-gray: #8C8279;
-    --accent-prague: #C4704A;
-    --accent-salzburg: #4A7C6F;
-    --accent-vienna: #7A5C8A;
-    --accent-dubrovnik: #2E6EA6;
-    --accent-transit: #B8A89A;
-    --gold: #C9A84C;
-    --card-bg: #FDFAF5;
-    --border: rgba(26,22,20,0.12);
+    --ink: #1a1714;
+    --paper: #f7f4ee;
+    --muted: #8a8070;
+    --accent-prague: #c0392b;
+    --accent-salzburg: #2471a3;
+    --accent-vienna: #117a65;
+    --accent-dubrovnik: #d4740a;
+    --accent-transit: #7d6e83;
+    --gold: #b8965a;
+    --card-bg: #ffffff;
+    --border: rgba(26,23,20,0.1);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; min-height: 100vh; }
 
-  body {
-    background: var(--cream);
-    color: var(--ink);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    min-height: 100vh;
-    overflow-x: hidden;
+  header {
+    background: var(--ink); color: var(--paper);
+    padding: 3rem 2rem 2.5rem; text-align: center; position: relative; overflow: hidden;
   }
+  header::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 80px);
+  }
+  .header-eyebrow { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; position: relative; }
+  header h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: 0.02em; line-height: 1.1; position: relative; }
+  header h1 em { font-style: italic; color: var(--gold); }
+  .header-sub { margin-top: 0.75rem; font-size: 0.82rem; letter-spacing: 0.12em; color: rgba(247,244,238,0.55); text-transform: uppercase; position: relative; }
+  .city-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1.5rem; position: relative; }
+  .pill { padding: 0.3rem 0.85rem; border-radius: 2rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid currentColor; opacity: 0.85; }
+  .pill.prague { color: #e57373; } .pill.salzburg { color: #64b5f6; } .pill.vienna { color: #66bb6a; } .pill.dubrovnik { color: #ffb74d; }
 
-  /* HERO */
-  .hero {
-    position: relative;
-    padding: 80px 40px 60px;
-    text-align: center;
-    background: var(--ink);
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 40px,
-      rgba(255,255,255,0.015) 40px,
-      rgba(255,255,255,0.015) 41px
-    );
-  }
-  .hero-eyebrow {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(48px, 8vw, 90px);
-    font-weight: 300;
-    color: var(--cream);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--gold);
-  }
-  .hero-sub {
-    font-size: 13px;
-    color: var(--warm-gray);
-    letter-spacing: 0.15em;
-    margin-top: 16px;
-  }
+  .tabs { display: flex; overflow-x: auto; background: var(--ink); border-bottom: 1px solid rgba(255,255,255,0.08); scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { flex-shrink: 0; padding: 0.75rem 1.3rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,244,238,0.45); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; user-select: none; }
+  .tab:hover { color: rgba(247,244,238,0.8); }
+  .tab.active { color: var(--paper); border-bottom-color: var(--gold); }
 
-  /* CITY TABS */
-  .city-nav {
-    display: flex;
-    gap: 0;
-    background: var(--ink);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .city-nav::-webkit-scrollbar { display: none; }
-  .city-tab {
-    flex: 0 0 auto;
-    padding: 16px 28px;
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    border-bottom: 2px solid transparent;
-    transition: all 0.25s ease;
-    white-space: nowrap;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .city-tab:hover { color: var(--cream); }
-  .city-tab.active { color: var(--cream); border-bottom-color: var(--gold); }
+  main { max-width: 960px; margin: 0 auto; padding: 2rem 1rem 4rem; }
 
-  /* MAIN LAYOUT */
-  .main {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 48px 24px 80px;
-  }
+  .overview-grid { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .ov-row { display: grid; grid-template-columns: 130px 1fr auto; align-items: center; background: var(--card-bg); padding: 0.9rem 1.2rem; transition: background 0.15s; cursor: pointer; }
+  .ov-row:hover { background: #fdfcfa; }
+  .ov-date { font-family: 'Cormorant Garamond', serif; font-size: 0.82rem; font-style: italic; color: var(--muted); }
+  .ov-city { font-size: 0.88rem; font-weight: 500; }
+  .ov-desc { font-size: 0.77rem; color: var(--muted); margin-top: 0.1rem; line-height: 1.4; }
+  .ov-dot { width: 10px; height: 10px; border-radius: 50%; margin-left: 1rem; flex-shrink: 0; }
+  .dot-prague { background: var(--accent-prague); } .dot-salzburg { background: var(--accent-salzburg); }
+  .dot-vienna { background: var(--accent-vienna); } .dot-dubrovnik { background: var(--accent-dubrovnik); } .dot-transit { background: var(--accent-transit); }
 
-  /* CITY SECTION */
-  .city-section { display: none; }
-  .city-section.active { display: block; }
+  .day-section { display: none; animation: fadeUp 0.35s ease; }
+  .day-section.active { display: block; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-  .city-header {
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
-  }
-  .city-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 52px;
-    font-weight: 300;
-    line-height: 1;
-  }
-  .city-dates {
-    font-size: 12px;
-    color: var(--warm-gray);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-  .city-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-bottom: 4px;
-  }
+  .day-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .day-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; line-height: 1; color: var(--border); }
+  .day-title-wrap h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; }
+  .day-title-wrap .day-meta { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.15rem; }
 
-  /* DAY CARD */
-  .day-card {
-    margin-bottom: 32px;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-    animation: fadeUp 0.4s ease both;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .day-card:nth-child(2) { animation-delay: 0.05s; }
-  .day-card:nth-child(3) { animation-delay: 0.1s; }
-  .day-card:nth-child(4) { animation-delay: 0.15s; }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 0.55rem; top: 0.4rem; bottom: 0; width: 1px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 1.2rem; }
+  .tl-item::before { content: ''; position: absolute; left: -1.55rem; top: 0.35rem; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); border: 2px solid var(--paper); box-shadow: 0 0 0 1px var(--gold); }
+  .tl-time { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.2rem; }
+  .tl-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.25rem; }
+  .tl-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
 
-  .day-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 24px;
-    cursor: pointer;
-    user-select: none;
-    transition: background 0.2s;
-  }
-  .day-header:hover { background: rgba(0,0,0,0.02); }
-  .day-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 38px;
-    font-weight: 300;
-    line-height: 1;
-    color: var(--warm-gray);
-    min-width: 40px;
-  }
-  .day-info { flex: 1; }
-  .day-date {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    margin-bottom: 4px;
-  }
-  .day-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 1.2;
-  }
-  .day-toggle {
-    font-size: 18px;
-    color: var(--warm-gray);
-    transition: transform 0.3s;
-    flex-shrink: 0;
-  }
-  .day-card.open .day-toggle { transform: rotate(180deg); }
+  .map-btn { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.5rem; padding: 0.3rem 0.75rem; border-radius: 2rem; border: 1px solid var(--border); background: var(--paper); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--ink); transition: all 0.15s; }
+  .map-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .map-btn svg { width: 12px; height: 12px; }
 
-  .day-body {
-    display: none;
-    padding: 0 24px 24px;
-    border-top: 1px solid var(--border);
-    padding-top: 20px;
-  }
-  .day-card.open .day-body { display: block; }
+  .section-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin: 1.5rem 0 0.75rem; display: flex; align-items: center; gap: 0.6rem; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  /* TIMELINE */
-  .timeline { position: relative; }
-  .tl-item {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 20px;
-    position: relative;
-  }
-  .tl-item:not(:last-child)::before {
-    content: '';
-    position: absolute;
-    left: 7px; top: 24px; bottom: -4px;
-    width: 1px;
-    background: var(--border);
-  }
-  .tl-dot {
-    width: 15px; height: 15px;
-    border-radius: 50%;
-    border: 2px solid currentColor;
-    background: var(--card-bg);
-    flex-shrink: 0;
-    margin-top: 3px;
-  }
-  .tl-content { flex: 1; min-width: 0; }
-  .tl-time {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: var(--warm-gray);
-    margin-bottom: 3px;
-    font-weight: 400;
-  }
-  .tl-label {
-    font-size: 15px;
-    font-weight: 400;
-    margin-bottom: 4px;
-    line-height: 1.3;
-  }
-  .tl-desc {
-    font-size: 13px;
-    color: var(--warm-gray);
-    line-height: 1.6;
-  }
+  .transport-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1rem; font-size: 0.82rem; line-height: 1.7; }
+  .transport-box .route { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; margin-bottom: 0.3rem; }
 
-  /* APPLE MAPS LINK */
-  .map-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 6px;
-    padding: 5px 12px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    font-size: 11px;
-    color: var(--ink);
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    transition: all 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .map-link:hover {
-    background: var(--ink);
-    color: var(--cream);
-    border-color: var(--ink);
-  }
-  .map-link svg { flex-shrink: 0; }
+  .hotel-chip { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.6rem 1rem; font-size: 0.8rem; margin-bottom: 1rem; text-decoration: none; color: inherit; transition: box-shadow 0.15s; }
+  .hotel-chip:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
 
-  /* FOOD ROW */
-  .food-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px dashed var(--border);
-  }
-  .food-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 4px 11px;
-    border-radius: 20px;
-    font-size: 12px;
-    background: var(--cream);
-    border: 1px solid var(--border);
-    text-decoration: none;
-    color: var(--ink);
-    transition: all 0.2s;
-  }
-  .food-pill:hover {
-    background: var(--ink);
-    color: var(--cream);
-  }
-  .food-pill.lunch { border-left: 3px solid var(--gold); }
-  .food-pill.dinner { border-left: 3px solid var(--accent-prague); }
-  .food-pill.coffee { border-left: 3px solid var(--accent-salzburg); }
+  .city-strip { height: 3px; border-radius: 2px; margin-bottom: 1.5rem; }
+  .strip-prague { background: var(--accent-prague); } .strip-salzburg { background: var(--accent-salzburg); }
+  .strip-vienna { background: var(--accent-vienna); } .strip-dubrovnik { background: var(--accent-dubrovnik); } .strip-transit { background: var(--accent-transit); }
 
-  /* TRANSPORT CARD */
-  .transport-card {
-    background: var(--ink);
-    color: var(--cream);
-    border-radius: 2px;
-    padding: 16px 20px;
-    margin-bottom: 16px;
-    font-size: 13px;
-    line-height: 1.7;
+  /* WEATHER BADGE */
+  .weather-bar {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 1.25rem;
   }
-  .transport-card strong {
-    font-weight: 500;
-    color: var(--gold);
-    display: block;
-    letter-spacing: 0.08em;
-    font-size: 11px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
+  .wx-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 0.55rem 0.9rem;
+    font-size: 0.78rem; line-height: 1.3;
   }
+  .wx-icon { font-size: 1.2rem; }
+  .wx-temp { font-weight: 500; font-size: 0.92rem; }
+  .wx-label { color: var(--muted); font-size: 0.72rem; }
+  .wx-rain { color: #2471a3; font-size: 0.7rem; margin-top: 0.1rem; }
+  .wx-snow { color: #7fb3d3; font-size: 0.7rem; margin-top: 0.1rem; }
 
-  /* SECTION LABEL */
-  .section-label {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    margin: 20px 0 10px;
-    font-weight: 500;
-  }
-
-  /* HIGHLIGHT BOX */
-  .highlight {
-    padding: 14px 16px;
-    border-left: 3px solid var(--gold);
-    background: rgba(201,168,76,0.06);
-    font-size: 13px;
-    line-height: 1.7;
-    margin: 12px 0;
-    color: var(--ink);
-  }
-
-  /* FOOTER */
-  .page-footer {
-    text-align: center;
-    padding: 40px;
-    font-size: 12px;
-    color: var(--warm-gray);
-    letter-spacing: 0.15em;
-    border-top: 1px solid var(--border);
-  }
-
-  /* MAP ICON SVG inline */
-  .pin-icon { display: inline-block; }
+  /* OV weather inline */
+  .ov-wx { font-size: 0.72rem; color: var(--muted); margin-left: 0.4rem; }
 
   @media (max-width: 600px) {
-    .hero { padding: 60px 20px 40px; }
-    .main { padding: 32px 16px 60px; }
-    .city-name { font-size: 38px; }
-    .day-num { font-size: 28px; }
+    .ov-row { grid-template-columns: 100px 1fr auto; padding: 0.8rem 0.9rem; }
+    .ov-date { font-size: 0.75rem; }
   }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <p class="hero-eyebrow">April 2 – 14, 2025 &nbsp;·&nbsp; Debo & Piyali</p>
-  <h1>A <em>Spring</em> Journey<br>Through Europe</h1>
-  <p class="hero-sub">Prague &nbsp;·&nbsp; Salzburg &nbsp;·&nbsp; Vienna &nbsp;·&nbsp; Dubrovnik</p>
+<header>
+  <div class="header-eyebrow">Spring Travels · 2025</div>
+  <h1>Central Europe &amp; <em>Adriatic</em></h1>
+  <div class="header-sub">April 2 – 14 &nbsp;·&nbsp; SFO → Prague → Salzburg → Vienna → Dubrovnik</div>
+  <div class="city-pills">
+    <span class="pill prague">Prague</span>
+    <span class="pill salzburg">Salzburg</span>
+    <span class="pill vienna">Vienna</span>
+    <span class="pill dubrovnik">Dubrovnik</span>
+  </div>
 </header>
 
-<nav class="city-nav">
-  <button class="city-tab active" onclick="showCity('transit')">✈ Transit</button>
-  <button class="city-tab" onclick="showCity('prague')">Prague</button>
-  <button class="city-tab" onclick="showCity('salzburg')">Salzburg</button>
-  <button class="city-tab" onclick="showCity('vienna')">Vienna</button>
-  <button class="city-tab" onclick="showCity('dubrovnik')">Dubrovnik</button>
-</nav>
+<div class="tabs">
+  <div class="tab active" onclick="showTab('overview',this)">Overview</div>
+  <div class="tab" onclick="showTab('apr2',this)">Apr 2</div>
+  <div class="tab" onclick="showTab('apr3',this)">Apr 3</div>
+  <div class="tab" onclick="showTab('apr4',this)">Apr 4</div>
+  <div class="tab" onclick="showTab('apr5',this)">Apr 5</div>
+  <div class="tab" onclick="showTab('apr6',this)">Apr 6</div>
+  <div class="tab" onclick="showTab('apr7',this)">Apr 7</div>
+  <div class="tab" onclick="showTab('apr8',this)">Apr 8</div>
+  <div class="tab" onclick="showTab('apr9',this)">Apr 9</div>
+  <div class="tab" onclick="showTab('apr10',this)">Apr 10</div>
+  <div class="tab" onclick="showTab('apr11',this)">Apr 11</div>
+  <div class="tab" onclick="showTab('apr12',this)">Apr 12</div>
+  <div class="tab" onclick="showTab('apr13',this)">Apr 13</div>
+  <div class="tab" onclick="showTab('apr14',this)">Apr 14</div>
+</div>
 
-<main class="main">
+<main>
 
-<!-- ==================== TRANSIT ==================== -->
-<section id="transit" class="city-section active">
-  <div class="city-header">
-    <div class="city-dot" style="background:var(--accent-transit)"></div>
-    <div>
-      <div class="city-name" style="color:var(--accent-transit)">Flights</div>
-      <div class="city-dates">Apr 2 departure · Apr 14 return</div>
+<!-- OVERVIEW -->
+<div id="overview" class="day-section active">
+  <div class="weather-bar" style="margin-bottom:1.25rem">
+    <div class="wx-badge"><span class="wx-icon">🇨🇿</span><div><div><span class="wx-temp">Prague: 53°F avg</span> <span class="wx-label">Apr 3–5</span></div><div class="wx-label">Cool &amp; breezy · Light coat needed</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🇦🇹</span><div><div><span class="wx-temp">Salzburg: 55°F avg</span> <span class="wx-label">Apr 6–8</span></div><div class="wx-label">Alpine air · Layers recommended</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🇦🇹</span><div><div><span class="wx-temp">Vienna: 58°F avg</span> <span class="wx-label">Apr 8–10</span></div><div class="wx-label">Milder, pleasant spring days</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🇭🇷</span><div><div><span class="wx-temp">Dubrovnik: 67°F avg</span> <span class="wx-label">Apr 11–13</span></div><div class="wx-label">Warm &amp; sunny · Mediterranean bliss</div></div></div>
+  </div>
+  <div class="overview-grid">
+    <div class="ov-row" onclick="showTabById('apr2')">
+      <div><div class="ov-date">Thu, Apr 2</div></div>
+      <div><div class="ov-city">SFO → Prague</div><div class="ov-desc">Turkish Airlines via Istanbul · Departs 12:50 PM · Confirmation SNY4RB</div></div>
+      <div class="ov-dot dot-transit"></div>
+    </div>
+    <div class="ov-row" onclick="showTabById('apr3')">
+      <div><div class="ov-date">Fri, Apr 3</div></div>
+      <div><div class="ov-city">Prague — Arrival</div><div class="ov-desc">Old Town Square · Easter Market · Charles Bridge · Czech Dinner</div></div>
+      <div class="ov-dot dot-prague"></div>
+    </div>
+    <div class="ov-row" onclick="showTabById('apr4')">
+      <div><div class="ov-date">Sat, Apr 4</div></div>
+      <div><div class="ov-city">Prague</div><div class="ov-desc">Petřín Hill · Strahov Brewery · Prague Castle · Letná Park · Birthday!</div></div>
+      <div class="ov-dot dot-prague"></div>
+    </div>
+    <div class="ov-row" onclick="showTabById('apr5')">
+      <div><div class="ov-date">Sun, Apr 5</div></div>
+      <div><div class="ov-city">Prague</div><div class="ov-desc">Jewish Quarter · Kafka Statue · Wenceslas Sq · Dancing House · Rusalka Opera</div></div>
+      <div class="ov-dot dot-prague"></div>
+    </div>
+    <div class="ov-row" onclick="showTabById('apr6')">
+      <div><div class="ov-date">Mon, Apr 6</div></div>
+      <div><div class="ov-city">Prague → Salzburg</div><div class="ov-desc">Train 6:21 AM · Mirabell Gardens · Fortress · Mozart Concert</div></div>
+      <div class="ov-dot dot-salzburg"></div>
+    </div>
+    <div class="ov-row" onclick="showTabById('apr7')">
+      <div><div class="ov-date">Tue, Apr 7</div></div>
+      <div><div class="ov-city">Salzburg</div><div class="ov-desc">Hallstatt Day Trip + Sound of Music Tour · Meet 8 AM</div></div>
+      <div class="ov-dot dot-salzburg"></div>
+    </div>
+    <div class="ov-row" onclick="showTabById('apr8')">
+      <div><div class="ov-date">Wed, Apr 8</div></div>
+      <div><div class="ov-city">Salzburg / Vienna</div><div class="ov-desc">Debo: Lake District (Wolfgangsee · Traunsee) · Piyali: Vienna arrival</div></div>
+      <div class="ov-dot dot-vienna"></div>
+    </div>
+    <div class="ov-row" onclick="showTabById('apr9')">
+      <div><div class="ov-date">Thu, Apr 9</div></div>
+      <div><div class="ov-city">Vienna</div><div class="ov-desc">Schönbrunn · Naschmarkt Lunch · Belvedere (The Kiss) · Danube Tower Sunset</div></div>
+      <div class="ov-dot dot-vienna"></div>
+    </div>
+    <div class="ov-row" onclick="showTabById('apr10')">
+      <div><div class="ov-date">Fri, Apr 10</div></div>
+      <div><div class="ov-city">Vienna</div><div class="ov-desc">Ringstrasse · MuseumsQuartier · Neubau · Danube Canal · Opera Ballet</div></div>
+      <div class="ov-dot dot-vienna"></div>
+    </div>
+    <div class="ov-row" onclick="showTabById('apr11')">
+      <div><div class="ov-date">Sat, Apr 11</div></div>
+      <div><div class="ov-city">Dubrovnik — Arrival</div><div class="ov-desc">Old Town · Stradun · Rector's Palace · Buža Bar Sunset · Proto Seafood</div></div>
+      <div class="ov-dot dot-dubrovnik"></div>
+    </div>
+    <div class="ov-row" onclick="showTabById('apr12')">
+      <div><div class="ov-date">Sun, Apr 12</div></div>
+      <div><div class="ov-city">Dubrovnik</div><div class="ov-desc">Elaphiti Islands Boat · Old Town Walls · Mt Srđ Cable Car Sunset</div></div>
+      <div class="ov-dot dot-dubrovnik"></div>
+    </div>
+    <div class="ov-row" onclick="showTabById('apr13')">
+      <div><div class="ov-date">Mon, Apr 13</div></div>
+      <div><div class="ov-city">Dubrovnik</div><div class="ov-desc">Lokrum Island · Cavtat Village · Sunset Dinner by the Sea</div></div>
+      <div class="ov-dot dot-dubrovnik"></div>
+    </div>
+    <div class="ov-row" onclick="showTabById('apr14')">
+      <div><div class="ov-date">Tue, Apr 14</div></div>
+      <div><div class="ov-city">Dubrovnik → SFO</div><div class="ov-desc">Turkish Airlines via Istanbul · Departs 9:15 AM</div></div>
+      <div class="ov-dot dot-transit"></div>
     </div>
   </div>
+</div>
 
-  <!-- Outbound -->
-  <div class="day-card open">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">01</div>
-      <div class="day-info">
-        <div class="day-date">Thursday, April 2</div>
-        <div class="day-title">SFO → Prague via Istanbul</div>
-      </div>
-      <div class="day-toggle">▾</div>
+<!-- APR 2 -->
+<div id="apr2" class="day-section">
+  <div class="city-strip strip-transit"></div>
+  <div class="day-header"><div class="day-num">01</div><div class="day-title-wrap"><h2>Departure Day</h2><div class="day-meta">Thursday, April 2 · San Francisco → Prague</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">🌤️</span><div><div><span class="wx-temp">62°F</span> <span class="wx-label">San Francisco · Apr 2</span></div><div class="wx-label">Partly cloudy, mild</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌥️</span><div><div><span class="wx-temp">53°F</span> <span class="wx-label">Prague (on arrival)</span></div><div class="wx-label">Avg April high · Light jacket needed</div></div></div>
+  </div>
+  <div class="section-label">Flights — Confirmation SNY4RB</div>
+  <div class="transport-box">
+    <div class="route">SFO → Istanbul → Prague</div>
+    <strong>Turkish Airlines TK 290</strong> &nbsp;·&nbsp; SFO 12:50 PM → Istanbul Apr 3, 11:40 PM<br>
+    <strong>Turkish Airlines TK 1771</strong> &nbsp;·&nbsp; Istanbul 12:50 PM → Prague 2:25 PM (Apr 3)
+  </div>
+  <a class="map-btn" href="https://maps.apple.com/?address=San+Francisco+International+Airport,+San+Francisco,+CA" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>SFO Airport
+  </a>
+</div>
+
+<!-- APR 3 -->
+<div id="apr3" class="day-section">
+  <div class="city-strip strip-prague"></div>
+  <div class="day-header"><div class="day-num">02</div><div class="day-title-wrap"><h2>Prague — Arrival</h2><div class="day-meta">Friday, April 3 · Old Town &amp; Easter Market</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">🌥️</span><div><div><span class="wx-temp">53°F / 39°F</span> <span class="wx-label">Prague · Apr 3</span></div><div class="wx-label">Partly cloudy · Light coat recommended</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌂</span><div><div><span class="wx-temp">20%</span> <span class="wx-label">Rain chance</span></div><div class="wx-label">Occasional April showers possible</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌬️</span><div><div><span class="wx-temp">~10 mph</span> <span class="wx-label">Wind</span></div><div class="wx-label">Can feel cooler on Charles Bridge</div></div></div>
+  </div>
+  <a class="hotel-chip" href="https://maps.apple.com/?address=Male+Namesti+138/4,+110+00+Prague,+Czech+Republic" target="_blank"><span>🏨</span> Hotel Rott — Malé Náměstí 138/4, Prague</a>
+  <div class="section-label">Afternoon &amp; Evening</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">2:25 PM</div><div class="tl-title">Arrive &amp; Transfer to Hotel</div><div class="tl-desc">Taxi from Prague Airport · Check-in &amp; refresh</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Male+Namesti+138/4,+110+00+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Hotel Rott</a>
     </div>
-    <div class="day-body">
-      <div class="transport-card">
-        <strong>Confirmation: SNY4RB</strong>
-        Turkish Airlines 290 · SFO → Istanbul · Apr 2, 12:50 PM – Apr 3, 11:40 PM<br>
-        Turkish Airlines 1771 · Istanbul → Prague · Apr 3, 12:50 PM – 2:25 PM
-      </div>
-      <a class="map-link" href="https://maps.apple.com/?q=San+Francisco+International+Airport" target="_blank">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        SFO Airport
-      </a>
+    <div class="tl-item"><div class="tl-time">4:15 – 5:00 PM</div><div class="tl-title">Old Town Square &amp; Easter Market</div><div class="tl-desc">Seasonal market stalls · Týn Church · Gothic &amp; baroque architecture · Street musicians</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Old+Town+Square,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Old Town Square</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">5:00 PM</div><div class="tl-title">Astronomical Clock Show</div><div class="tl-desc">Hourly mechanical show at Old Town Hall</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Prague+Astronomical+Clock,+Staromestske+namesti,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Astronomical Clock</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">5:10 – 6:00 PM</div><div class="tl-title">Charles Bridge at Sunset</div><div class="tl-desc">Best photo spots: Bridge tower on Old Town side · Middle of bridge looking toward Prague Castle</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Charles+Bridge,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Charles Bridge</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">6:00 – 6:40 PM</div><div class="tl-title">Riverside Stroll — Kampa Island</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Kampa+Island,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Kampa Island</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">7:00 – 8:15 PM</div><div class="tl-title">Dinner — Lokál Dlouhááá</div><div class="tl-desc">Order: Svíčková · Goulash with dumplings · Smažený sýr · Czech Pilsner</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Lokál+Dlouhááá,+Dlouhá+33,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Lokál Dlouhááá</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">8:30 – 9:30 PM</div><div class="tl-title">Easter Concert (Optional)</div><div class="tl-desc">St. Nicholas Church, Old Town Square · 5 min walk</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=St.+Nicholas+Church,+Old+Town+Square,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>St. Nicholas Church</a>
     </div>
   </div>
+</div>
 
-  <!-- Return -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">13</div>
-      <div class="day-info">
-        <div class="day-date">Tuesday, April 14</div>
-        <div class="day-title">Dubrovnik → SFO via Istanbul</div>
-      </div>
-      <div class="day-toggle">▾</div>
+<!-- APR 4 -->
+<div id="apr4" class="day-section">
+  <div class="city-strip strip-prague"></div>
+  <div class="day-header"><div class="day-num">03</div><div class="day-title-wrap"><h2>Prague — Petřín &amp; Castle</h2><div class="day-meta">Saturday, April 4 · Birthday Celebration 🎂</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">⛅</span><div><div><span class="wx-temp">54°F / 40°F</span> <span class="wx-label">Prague · Apr 4</span></div><div class="wx-label">Mix of sun &amp; cloud · Comfortable</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌄</span><div><div><span class="wx-temp">Sunrise 6:21 AM</span> <span class="wx-label">Charles Bridge timing</span></div><div class="wx-label">~38°F at sunrise · Bring a warm layer</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌂</span><div><div><span class="wx-temp">15%</span> <span class="wx-label">Rain chance</span></div><div class="wx-label">Mostly dry, pleasant for outdoor walks</div></div></div>
+  </div>
+  <div class="section-label">Full Day</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">6:25 – 7:15 AM</div><div class="tl-title">Sunrise at Charles Bridge</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Charles+Bridge,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Charles Bridge</a>
     </div>
-    <div class="day-body">
-      <div class="transport-card">
-        <strong>Confirmation: SNY4RB</strong>
-        Turkish Airlines 438 · Dubrovnik → Istanbul · Apr 14, 9:15 AM – 12:10 PM<br>
-        Turkish Airlines 79 · Istanbul → SFO · Apr 14, 1:15 PM – 4:45 PM
-      </div>
-      <a class="map-link" href="https://maps.apple.com/?q=Dubrovnik+Airport" target="_blank">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Dubrovnik Airport
-      </a>
+    <div class="tl-item"><div class="tl-time">9:30 – 10:00 AM</div><div class="tl-title">Wallenstein Garden (Optional)</div><div class="tl-desc">Roaming peacocks · Dramatic grotto wall · Reflecting pond</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Wallenstein+Garden,+Letenská+4,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Wallenstein Garden</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">10:50 AM</div><div class="tl-title">Petřín Funicular</div><div class="tl-desc">Újezd station · Included with Prague transit ticket</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Petrin+Funicular+Lower+Station,+Ujezd,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Petřín Funicular</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">11:35 AM – 12:00 PM</div><div class="tl-title">Petřín Lookout Tower</div><div class="tl-desc">Panoramic views: Prague Castle · Old Town bridges · Letná ridge</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Petrin+Lookout+Tower,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Petřín Tower</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">12:15 – 1:30 PM</div><div class="tl-title">Lunch — Strahov Monastery Brewery</div><div class="tl-desc">Recommended: Dark beer · Hearty monastery fare</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Strahov+Monastery+Brewery,+Strahovské+nádvoří+301,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Strahov Brewery</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">1:45 – 3:00 PM</div><div class="tl-title">Prague Castle &amp; St. Vitus Cathedral</div><div class="tl-desc">Alfons Mucha stained glass · Royal tombs · Gothic nave · Golden Lane (colorful medieval houses)</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Prague+Castle,+119+08+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Prague Castle</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">3:00 – 3:45 PM</div><div class="tl-title">Lesser Town (Malá Strana)</div><div class="tl-desc">Walk down historic Nerudova Street</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Nerudova+Street,+Malá+Strana,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Nerudova Street</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">4:15 – 5:30 PM</div><div class="tl-title">Letná Park &amp; Metronome</div><div class="tl-desc">Most famous panorama of Prague's bridges · Giant metronome sculpture</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Letná+Park,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Letná Park</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">9:00 – 10:00 PM</div><div class="tl-title">🎂 Birthday Dinner — Restaurant Zvonice</div><div class="tl-desc">Comedy Show follows at 9 PM</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Restaurant+Zvonice,+Jindřišská+věž,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Restaurant Zvonice</a>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ==================== PRAGUE ==================== -->
-<section id="prague" class="city-section">
-  <div class="city-header">
-    <div class="city-dot" style="background:var(--accent-prague)"></div>
-    <div>
-      <div class="city-name" style="color:var(--accent-prague)">Prague</div>
-      <div class="city-dates">April 3 – 5 · Hotel Rott, Malé Náměstí 138/4</div>
+<!-- APR 5 -->
+<div id="apr5" class="day-section">
+  <div class="city-strip strip-prague"></div>
+  <div class="day-header"><div class="day-num">04</div><div class="day-title-wrap"><h2>Prague — Jewish Quarter</h2><div class="day-meta">Sunday, April 5 · Josefov · New Town · Rusalka Opera</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">🌦️</span><div><div><span class="wx-temp">55°F / 41°F</span> <span class="wx-label">Prague · Apr 5</span></div><div class="wx-label">Variable — umbrella handy</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌂</span><div><div><span class="wx-temp">25%</span> <span class="wx-label">Rain chance</span></div><div class="wx-label">Indoor-heavy day; rain won't slow you down</div></div></div>
+  </div>
+  <div class="section-label">Morning — Jewish Quarter (Josefov)</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">9:10 – 11:00 AM</div><div class="tl-title">Jewish Quarter Synagogues</div><div class="tl-desc">Old-New Synagogue (1270, one of Europe's oldest) · Pinkas Synagogue (Holocaust memorial walls) · Spanish Synagogue (Moorish interior)</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Josefov,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Jewish Quarter</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">11:00 – 11:30 AM</div><div class="tl-title">Old Jewish Cemetery</div><div class="tl-desc">15th century graves · ~12,000 visible tombstones · Layered burial ground</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Old+Jewish+Cemetery,+U+Starého+hřbitova,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Old Jewish Cemetery</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">11:40 AM</div><div class="tl-title">Franz Kafka Kinetic Statue</div><div class="tl-desc">Rotating sculpture that forms Kafka's face</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Franz+Kafka+Statue,+Vězeňská,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Kafka Statue</a>
     </div>
   </div>
-
-  <!-- Day 1 Prague -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num" style="color:var(--accent-prague)">Fri</div>
-      <div class="day-info">
-        <div class="day-date">Friday, April 3</div>
-        <div class="day-title">Arrive · Old Town · Easter Market · Charles Bridge</div>
-      </div>
-      <div class="day-toggle">▾</div>
+  <div class="section-label">Afternoon — New Town</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">12:15 – 1:00 PM</div><div class="tl-title">Wenceslas Square</div><div class="tl-desc">Boulevard of the Velvet Revolution · National Museum (exterior, Neo-Renaissance)</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Wenceslas+Square,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Wenceslas Square</a>
     </div>
-    <div class="day-body">
-      <div class="transport-card">
-        <strong>Arrival</strong>
-        Arrive Prague 2:25 PM · Taxi to Hotel Rott · Check-in 3:45 PM
-      </div>
-
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">4:15 – 5:00 PM</div>
-            <div class="tl-label">Old Town Square & Easter Market</div>
-            <div class="tl-desc">Týn Church, street musicians, seasonal Easter stalls & baroque architecture</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Old+Town+Square+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Old Town Square
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">5:00 PM</div>
-            <div class="tl-label">Astronomical Clock Show</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Prague+Astronomical+Clock" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Astronomical Clock
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">5:10 – 6:00 PM</div>
-            <div class="tl-label">Charles Bridge at Sunset</div>
-            <div class="tl-desc">Best spots: Old Town bridge tower · middle of bridge toward Prague Castle</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Charles+Bridge+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Charles Bridge
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">6:00 – 6:40 PM</div>
-            <div class="tl-label">Riverside Stroll → Kampa Island</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Kampa+Island+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Kampa Island
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">8:30 – 9:30 PM (optional)</div>
-            <div class="tl-label">Easter Concert — St. Nicholas Church</div>
-            <a class="map-link" href="https://maps.apple.com/?q=St+Nicholas+Church+Old+Town+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              St. Nicholas Church
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="food-row">
-        <div class="section-label" style="width:100%;margin:0 0 6px">Dining</div>
-        <a class="food-pill dinner" href="https://maps.apple.com/?q=Lokal+Dlouha+Prague" target="_blank">🍺 Lokál Dlouhááá (dinner)</a>
-        <a class="food-pill dinner" href="https://maps.apple.com/?q=Mincovna+Restaurant+Prague" target="_blank">🍽 Mincovna (Piyali – dinner)</a>
-      </div>
+    <div class="tl-item"><div class="tl-time">1:15 – 2:00 PM</div><div class="tl-title">Dancing House &amp; Rooftop Café</div><div class="tl-desc">Frank Gehry's "Fred and Ginger" · Rooftop bar panorama · ~80–100 CZK drink for access</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Dancing+House,+Jiráskovo+náměstí+1981/6,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Dancing House</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">3:00 – 4:30 PM</div><div class="tl-title">Café Slavia — Coffee with a View</div><div class="tl-desc">Famous for Vltava River &amp; Prague Castle views · Near National Theatre</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Cafe+Slavia,+Smetanovo+nábřeží+1012/2,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Café Slavia</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">5:00 – 8:00 PM</div><div class="tl-title">🎭 Rusalka — National Theatre</div><div class="tl-desc">Dvořák's Czech opera classic</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=National+Theatre,+Ostrovní+1,+Prague,+Czech+Republic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>National Theatre</a>
     </div>
   </div>
+</div>
 
-  <!-- Day 2 Prague -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num" style="color:var(--accent-prague)">Sat</div>
-      <div class="day-info">
-        <div class="day-date">Saturday, April 4</div>
-        <div class="day-title">Petřín · Castle · Lesser Town · Birthday Celebration</div>
-      </div>
-      <div class="day-toggle">▾</div>
+<!-- APR 6 -->
+<div id="apr6" class="day-section">
+  <div class="city-strip strip-salzburg"></div>
+  <div class="day-header"><div class="day-num">05</div><div class="day-title-wrap"><h2>Prague → Salzburg</h2><div class="day-meta">Monday, April 6 · Train 6:21 AM · Mozart Concert Evening</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">🌤️</span><div><div><span class="wx-temp">Prague: 53°F</span> <span class="wx-label">Departure · Apr 6</span></div><div class="wx-label">Early morning ~38°F at station</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">⛰️</span><div><div><span class="wx-temp">Salzburg: 55°F / 40°F</span> <span class="wx-label">Arrival · Apr 6</span></div><div class="wx-label">Alpine air — crisp &amp; refreshing</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌂</span><div><div><span class="wx-temp">20%</span> <span class="wx-label">Rain chance</span></div><div class="wx-label">Pack layers for fortress walk</div></div></div>
+  </div>
+  <div class="section-label">Train — via Omio</div>
+  <div class="transport-box">
+    <div class="route">Prague → Linz → Salzburg</div>
+    <strong>ÖBB EC 331</strong> · 6:21 AM → Linz 10:06 AM · Carriage 371, Seats 25/26<br>
+    <strong>ÖBB IC 546</strong> · Linz 10:30 AM → Salzburg 11:49 AM · Carriage 371, Seats 25/26
+  </div>
+  <a class="hotel-chip" href="https://maps.apple.com/?address=Paris-Lodron-Strasse+1,+5020+Salzburg,+Austria" target="_blank"><span>🏨</span> Hotel MirabellPlatz — Paris-Lodron-Strasse 1, Salzburg</a>
+  <div class="section-label">Afternoon &amp; Evening</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">12:45 – 1:10 PM</div><div class="tl-title">Mirabell Gardens</div><div class="tl-desc">Pegasus fountain (Sound of Music scene!) · Rose garden · Fortress-aligned view</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Mirabell+Gardens,+Mirabellplatz+4,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Mirabell Gardens</a>
     </div>
-    <div class="day-body">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">6:25 – 7:15 AM</div>
-            <div class="tl-label">Sunrise at Charles Bridge</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Charles+Bridge+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Charles Bridge
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">9:30 – 10:00 AM (optional)</div>
-            <div class="tl-label">Wallenstein Garden</div>
-            <div class="tl-desc">Roaming peacocks · reflecting pond · dramatic grotto wall</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Wallenstein+Garden+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Wallenstein Garden
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">10:05 – 10:30 AM</div>
-            <div class="tl-label">St. Nicholas Church, Malá Strana</div>
-            <a class="map-link" href="https://maps.apple.com/?q=St+Nicholas+Church+Mala+Strana+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              St. Nicholas (Malá Strana)
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">10:50 – 11:00 AM</div>
-            <div class="tl-label">Petřín Funicular (Újezd station)</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Petrin+Funicular+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Petřín Funicular
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">11:35 AM – 12:00 PM</div>
-            <div class="tl-label">Petřín Lookout Tower</div>
-            <div class="tl-desc">360° views: Prague Castle · Old Town bridges · Letná ridge</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Petrin+Lookout+Tower+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Petřín Tower
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">1:45 – 3:00 PM</div>
-            <div class="tl-label">Prague Castle & St. Vitus Cathedral</div>
-            <div class="tl-desc">Alfons Mucha stained glass · Royal tombs · Golden Lane</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Prague+Castle" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Prague Castle
-            </a>
-            <a class="map-link" href="https://maps.apple.com/?q=St+Vitus+Cathedral+Prague" target="_blank" style="margin-left:6px">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              St. Vitus Cathedral
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">3:00 – 3:45 PM</div>
-            <div class="tl-label">Nerudova Street → Malá Strana</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Nerudova+Street+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Nerudova Street
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">4:15 – 5:30 PM</div>
-            <div class="tl-label">Letná Park & Metronome</div>
-            <div class="tl-desc">Best panorama of Prague's bridges · Tram 12/17 from Malostranská</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Letna+Park+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Letná Park
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--gold)"></div>
-          <div class="tl-content">
-            <div class="tl-time">9:00 PM – 10:00 PM</div>
-            <div class="tl-label">🎂 Birthday Comedy Show — Restaurant Zvonice</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Restaurant+Zvonice+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Restaurant Zvonice
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="food-row">
-        <div class="section-label" style="width:100%;margin:0 0 6px">Dining</div>
-        <a class="food-pill lunch" href="https://maps.apple.com/?q=Strahov+Monastery+Brewery+Prague" target="_blank">🍺 Strahov Brewery (lunch)</a>
-        <a class="food-pill dinner" href="https://maps.apple.com/?q=Restaurant+Zvonice+Prague" target="_blank">🎂 Zvonice (birthday dinner)</a>
-      </div>
+    <div class="tl-item"><div class="tl-time">1:20 – 2:20 PM</div><div class="tl-title">Lunch — Bärenwirt</div><div class="tl-desc">Order: Wiener Schnitzel · Tafelspitz · Local beer</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Bärenwirt,+Müllner+Hauptstraße+8,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Bärenwirt</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">2:25 – 2:50 PM</div><div class="tl-title">Original Mozartkugel — Café Fürst</div><div class="tl-desc">Order: Mozartkugel (silver/blue wrapper = original) + Melange coffee</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Konditorei+Fürst,+Brodgasse+13,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Café-Konditorei Fürst</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">2:50 – 3:30 PM</div><div class="tl-title">Old Town Walk</div><div class="tl-desc">Getreidegasse · Mozart's Birthplace · Salzburg Cathedral · Residenzplatz</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Getreidegasse,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Getreidegasse</a>
+      <a class="map-btn" href="https://maps.apple.com/?address=Mozart's+Birthplace,+Getreidegasse+9,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Mozart's Birthplace</a>
+      <a class="map-btn" href="https://maps.apple.com/?address=Salzburg+Cathedral,+Domplatz+1a,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Salzburg Cathedral</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">3:30 – 4:45 PM</div><div class="tl-title">Hohensalzburg Fortress</div><div class="tl-desc">Festungsbahn funicular (1 min ride) · Panorama terraces · Alpine views</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Hohensalzburg+Fortress,+Mönchsberg+34,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Hohensalzburg Fortress</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">4:45 – 5:30 PM</div><div class="tl-title">Mönchsberg Ridge Walk</div><div class="tl-desc">Scenic ridge trail · Bastei viewpoint · Museum der Moderne · Descend via lift</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Mönchsberg,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Mönchsberg Walk</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">5:45 – 6:45 PM</div><div class="tl-title">Augustiner Bräustübl Mülln (Optional)</div><div class="tl-desc">Rinse stone mug at fountain yourself · Märzen beer · Schweinsbraten food stalls</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Augustiner+Bräustübl,+Lindhofstraße+7,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Augustiner Brewery</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">8:00 – 9:30 PM</div><div class="tl-title">🎵 Mozart Concert — Mirabell Palace</div><div class="tl-desc">Marble Hall · Classic Mozart programme</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Mirabell+Palace,+Mirabellplatz+4,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Mirabell Palace</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">9:40 PM</div><div class="tl-title">Late Dinner — St. Peter Stiftskulinarium</div><div class="tl-desc">Order: Kasnocken · Salzburger Nockerl (signature dessert)</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=St.+Peter+Stiftskulinarium,+Sankt+Peter+Bezirk+1,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>St. Peter Stiftskulinarium</a>
     </div>
   </div>
+</div>
 
-  <!-- Day 3 Prague -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num" style="color:var(--accent-prague)">Sun</div>
-      <div class="day-info">
-        <div class="day-date">Sunday, April 5</div>
-        <div class="day-title">Jewish Quarter · Kafka · New Town · Opera</div>
-      </div>
-      <div class="day-toggle">▾</div>
-    </div>
-    <div class="day-body">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">9:00 – 11:30 AM</div>
-            <div class="tl-label">Jewish Quarter (Josefov)</div>
-            <div class="tl-desc">Old-New Synagogue (1270) · Pinkas Synagogue · Spanish Synagogue · Old Jewish Cemetery</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Jewish+Quarter+Josefov+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Josefov
-            </a>
-            <a class="map-link" href="https://maps.apple.com/?q=Old+Jewish+Cemetery+Prague" target="_blank" style="margin-left:6px">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Old Jewish Cemetery
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">11:40 AM – 12:00 PM</div>
-            <div class="tl-label">Franz Kafka Rotating Sculpture</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Franz+Kafka+Statue+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Kafka Statue
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">12:15 – 1:00 PM</div>
-            <div class="tl-label">Wenceslas Square & National Museum</div>
-            <div class="tl-desc">Site of the 1989 Velvet Revolution</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Wenceslas+Square+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Wenceslas Square
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">1:15 – 2:00 PM</div>
-            <div class="tl-label">Dancing House & Rooftop Café</div>
-            <div class="tl-desc">Frank Gehry's "Fred & Ginger" building · rooftop 360° views</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Dancing+House+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Dancing House
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-prague)"></div>
-          <div class="tl-content">
-            <div class="tl-time">3:00 – 4:30 PM</div>
-            <div class="tl-label">Café Slavia at National Theatre</div>
-            <div class="tl-desc">Famous views of the Vltava River and Prague Castle</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Cafe+Slavia+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Café Slavia
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--gold)"></div>
-          <div class="tl-content">
-            <div class="tl-time">5:00 PM</div>
-            <div class="tl-label">Rusalka — National Theatre</div>
-            <a class="map-link" href="https://maps.apple.com/?q=National+Theatre+Prague" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              National Theatre
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="food-row">
-        <div class="section-label" style="width:100%;margin:0 0 6px">Dining</div>
-        <a class="food-pill lunch" href="https://maps.apple.com/?q=Kantyna+Prague" target="_blank">🥩 Kantýna (Piyali – lunch)</a>
-        <a class="food-pill coffee" href="https://maps.apple.com/?q=Cafe+Louvre+Prague" target="_blank">☕ Café Louvre</a>
-        <a class="food-pill dinner" href="https://maps.apple.com/?q=Lokal+u+Jirata+Prague" target="_blank">🍺 Lokál U Jiráta (dinner)</a>
-        <a class="food-pill dinner" href="https://maps.apple.com/?q=Mincovna+Restaurant+Prague" target="_blank">🍽 Mincovna (alt dinner)</a>
-      </div>
+<!-- APR 7 -->
+<div id="apr7" class="day-section">
+  <div class="city-strip strip-salzburg"></div>
+  <div class="day-header"><div class="day-num">06</div><div class="day-title-wrap"><h2>Hallstatt Day Trip</h2><div class="day-meta">Tuesday, April 7 · Sound of Music Tour</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">⛅</span><div><div><span class="wx-temp">Salzburg: 56°F / 41°F</span> <span class="wx-label">Apr 7</span></div><div class="wx-label">Partly cloudy · Good touring weather</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🏔️</span><div><div><span class="wx-temp">Hallstatt: ~48°F</span> <span class="wx-label">Lake village</span></div><div class="wx-label">Cooler by the lake · Waterproof layer advised</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌂</span><div><div><span class="wx-temp">30%</span> <span class="wx-label">Rain chance</span></div><div class="wx-label">April showers common in alpine areas</div></div></div>
+  </div>
+  <div class="section-label">Tour Meeting Point</div>
+  <div class="transport-box">
+    <div class="route">Hallstatt + Sound of Music</div>
+    <strong>Meeting Time:</strong> 8:00 AM<br>
+    <strong>Meeting Point:</strong> Hubert-Sattler-Gasse 1, 5020 Salzburg, Austria
+  </div>
+  <a class="map-btn" href="https://maps.apple.com/?address=Hubert-Sattler-Gasse+1,+5020+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Tour Meeting Point</a>
+  <a class="map-btn" href="https://maps.apple.com/?address=Hallstatt,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Hallstatt Village</a>
+  <div class="section-label">Evening Dinner — Piyali</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">8:30 PM</div><div class="tl-title">Dinner — Bärenwirt</div><div class="tl-desc">Operating since 1663 · Famous Backhendl (deep-fried chicken) · Beef goulash · Wiener Schnitzel · Reserve ahead!</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Bärenwirt,+Müllner+Hauptstraße+8,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Bärenwirt</a>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ==================== SALZBURG ==================== -->
-<section id="salzburg" class="city-section">
-  <div class="city-header">
-    <div class="city-dot" style="background:var(--accent-salzburg)"></div>
-    <div>
-      <div class="city-name" style="color:var(--accent-salzburg)">Salzburg</div>
-      <div class="city-dates">April 6 – 7 · Hotel MirabellPlatz, Paris-Lodron-Strasse 1</div>
+<!-- APR 8 -->
+<div id="apr8" class="day-section">
+  <div class="city-strip strip-vienna"></div>
+  <div class="day-header"><div class="day-num">07</div><div class="day-title-wrap"><h2>Debo: Lakes · Piyali: Vienna</h2><div class="day-meta">Wednesday, April 8 · Split itinerary</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">🏔️</span><div><div><span class="wx-temp">Wolfgangsee: ~50°F</span> <span class="wx-label">Debo · Lake District</span></div><div class="wx-label">Cool alpine lake air · Layers essential</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌤️</span><div><div><span class="wx-temp">Vienna: 57°F / 43°F</span> <span class="wx-label">Piyali · Apr 8</span></div><div class="wx-label">Mild spring day · Great for sightseeing</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌂</span><div><div><span class="wx-temp">20%</span> <span class="wx-label">Rain chance (both)</span></div><div class="wx-label">Mostly pleasant, light jacket needed</div></div></div>
+  </div>
+  <a class="hotel-chip" href="https://maps.apple.com/?address=Singerstrasse+3,+1010+Vienna,+Austria" target="_blank"><span>🏨</span> Hotel Royal — Singerstrasse 3, Vienna 1010</a>
+  <div class="section-label">Debo — Austrian Lake District</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">8:00 AM</div><div class="tl-title">Bus 150 → St. Gilgen (Wolfgangsee)</div><div class="tl-desc">From Mirabellplatz · Sit right side for lake views · Arrive ~8:50 AM</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=St.+Gilgen,+Wolfgangsee,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>St. Gilgen</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">10:15 AM</div><div class="tl-title">Ferry → St. Wolfgang</div><div class="tl-desc">~45 min Wolfgangsee boat crossing · Verify sailing time 1–2 days ahead</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=St.+Wolfgang+im+Salzkammergut,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>St. Wolfgang</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">11:20 AM – 1:20 PM</div><div class="tl-title">Schafbergbahn Mountain Railway</div><div class="tl-desc">Historic cog railway · Mid-station views + short loop walk</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Schafberg,+St.+Wolfgang,+Salzburg,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Schafbergbahn</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">4:05 – 5:45 PM</div><div class="tl-title">Lake Traunsee — Schloss Ort</div><div class="tl-desc">Train to Gmunden · 15 min stroll to island castle · Lakeside promenade · Dramatic alpine lake</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Schloss+Ort,+Ort+1,+Gmunden,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Schloss Ort, Gmunden</a>
     </div>
   </div>
-
-  <!-- Day 4 -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num" style="color:var(--accent-salzburg)">Mon</div>
-      <div class="day-info">
-        <div class="day-date">Monday, April 6</div>
-        <div class="day-title">Train from Prague · Old Town · Fortress · Mozart Concert</div>
-      </div>
-      <div class="day-toggle">▾</div>
+  <div class="section-label">Piyali — Vienna First Day</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">12:00 – 12:45 PM</div><div class="tl-title">St. Stephen's Cathedral (Stephansdom)</div><div class="tl-desc">No tower · Underground Catacombs (Vienna Pass)</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Stephansplatz+3,+1010+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Stephansdom</a>
     </div>
-    <div class="day-body">
-      <div class="transport-card">
-        <strong>Train — EC 331 + IC 546</strong>
-        Prague 6:21 AM → Linz 10:06 AM · Linz 10:30 AM → Salzburg 11:49 AM<br>
-        Carriage 371 · Seats 25 & 26
-      </div>
-
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">12:45 – 1:10 PM</div>
-            <div class="tl-label">Mirabell Gardens</div>
-            <div class="tl-desc">Pegasus fountain · Sound of Music filming location · Rose garden</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Mirabell+Gardens+Salzburg" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Mirabell Gardens
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">2:25 – 2:50 PM</div>
-            <div class="tl-label">Original Mozartkugel — Café-Konditorei Fürst</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Cafe+Konditorei+Furst+Salzburg" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Konditorei Fürst
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">2:50 – 3:30 PM</div>
-            <div class="tl-label">Old Town Walk</div>
-            <div class="tl-desc">Getreidegasse · Mozart's Birthplace · Salzburg Cathedral · Residenzplatz</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Getreidegasse+Salzburg" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Getreidegasse
-            </a>
-            <a class="map-link" href="https://maps.apple.com/?q=Mozart+Birthplace+Salzburg" target="_blank" style="margin-left:6px">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Mozart's Birthplace
-            </a>
-            <a class="map-link" href="https://maps.apple.com/?q=Salzburg+Cathedral" target="_blank" style="margin-left:6px">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Cathedral
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">3:30 – 4:45 PM</div>
-            <div class="tl-label">Hohensalzburg Fortress</div>
-            <div class="tl-desc">Festungsbahn funicular · fortress courtyard · alpine panoramas</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Hohensalzburg+Fortress" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Hohensalzburg Fortress
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">4:45 – 5:30 PM</div>
-            <div class="tl-label">Mönchsberg Ridge Walk → Bastei Viewpoint</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Monchsberg+Walk+Salzburg" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Mönchsberg Walk
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">5:45 – 6:45 PM (optional)</div>
-            <div class="tl-label">Augustiner Bräustübl Mülln</div>
-            <div class="tl-desc">Self-rinse stone mugs · Märzen beer · Schweinsbraten food stalls</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Augustiner+Braustubl+Mulln+Salzburg" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Augustiner Bräustübl
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--gold)"></div>
-          <div class="tl-content">
-            <div class="tl-time">8:00 – 9:30 PM</div>
-            <div class="tl-label">Mozart Concert — Mirabell Palace Marble Hall</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Mirabell+Palace+Salzburg" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Mirabell Palace
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">9:40 PM</div>
-            <div class="tl-label">Late Dinner — St. Peter Stiftskulinarium</div>
-            <div class="tl-desc">Order: Kasnocken · Salzburger Nockerl (signature dessert)</div>
-            <a class="map-link" href="https://maps.apple.com/?q=St+Peter+Stiftskulinarium+Salzburg" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              St. Peter Stiftskulinarium
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="food-row">
-        <div class="section-label" style="width:100%;margin:0 0 6px">Dining</div>
-        <a class="food-pill lunch" href="https://maps.apple.com/?q=Barenwirt+Salzburg" target="_blank">🥩 Bärenwirt (lunch)</a>
-        <a class="food-pill lunch" href="https://maps.apple.com/?q=Stiegl+Keller+Salzburg" target="_blank">🍺 Stiegl-Keller (Piyali lunch)</a>
-        <a class="food-pill dinner" href="https://maps.apple.com/?q=St+Peter+Stiftskulinarium+Salzburg" target="_blank">🍽 St. Peter Stiftskulinarium</a>
-      </div>
+    <div class="tl-item"><div class="tl-time">1:30 – 3:30 PM</div><div class="tl-title">Hofburg Palace &amp; Sisi Museum</div><div class="tl-desc">Vienna Pass · Imperial Apartments · Sisi Museum</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Hofburg,+Michaelerkuppel,+1010+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Hofburg Palace</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">3:30 – 4:00 PM</div><div class="tl-title">Austrian National Library — State Hall</div><div class="tl-desc">Vienna Pass · One of Europe's most stunning baroque libraries</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Austrian+National+Library,+Josefsplatz+1,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>National Library State Hall</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">6:15 – 8:15 PM</div><div class="tl-title">Albertina Museum</div><div class="tl-desc">Vienna Pass · World-class prints and drawings collection</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Albertina,+Albertinaplatz+1,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Albertina Museum</a>
     </div>
   </div>
+</div>
 
-  <!-- Day 5 Hallstatt -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num" style="color:var(--accent-salzburg)">Tue</div>
-      <div class="day-info">
-        <div class="day-date">Tuesday, April 7</div>
-        <div class="day-title">Hallstatt & Sound of Music Tour · Dinner Bärenwirt</div>
-      </div>
-      <div class="day-toggle">▾</div>
+<!-- APR 9 -->
+<div id="apr9" class="day-section">
+  <div class="city-strip strip-vienna"></div>
+  <div class="day-header"><div class="day-num">08</div><div class="day-title-wrap"><h2>Vienna — Schönbrunn &amp; Belvedere</h2><div class="day-meta">Thursday, April 9 · Naschmarkt · Danube Tower Sunset</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">⛅</span><div><div><span class="wx-temp">58°F / 44°F</span> <span class="wx-label">Vienna · Apr 9</span></div><div class="wx-label">Mix of cloud &amp; sun · Garden-perfect</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌅</span><div><div><span class="wx-temp">Sunset ~7:45 PM</span> <span class="wx-label">Danube Tower timing</span></div><div class="wx-label">Golden hour views from the tower</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌂</span><div><div><span class="wx-temp">20%</span> <span class="wx-label">Rain chance</span></div><div class="wx-label">Mostly dry; Naschmarkt stalls stay open</div></div></div>
+  </div>
+  <div class="section-label">Full Day</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">12:30 – 1:45 PM</div><div class="tl-title">Schönbrunn Gardens &amp; Gloriette (€15)</div><div class="tl-desc">U1 → Karlsplatz → U4 → Schönbrunn · Formal gardens · Climb to the Gloriette viewpoint</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Schönbrunn+Palace,+Schönbrunner+Schloßstraße+47,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Schönbrunn Palace</a>
     </div>
-    <div class="day-body">
-      <div class="highlight">
-        📍 Meeting Point 8:00 AM — Hubert-Sattler-Gasse 1, 5020 Salzburg
-      </div>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">8:00 AM</div>
-            <div class="tl-label">Hallstatt & Sound of Music Day Tour</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Hubert-Sattler-Gasse+1+Salzburg" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Tour Meeting Point
-            </a>
-            <a class="map-link" href="https://maps.apple.com/?q=Hallstatt+Austria" target="_blank" style="margin-left:6px">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Hallstatt
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">Evening (optional)</div>
-            <div class="tl-label">Augustiner Bräustübl Mülln</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Augustiner+Braustubl+Mulln+Salzburg" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Augustiner Bräustübl
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="food-row">
-        <div class="section-label" style="width:100%;margin:0 0 6px">Dining</div>
-        <a class="food-pill dinner" href="https://maps.apple.com/?q=Barenwirt+Salzburg" target="_blank">🥩 Bärenwirt (8:30 PM, Piyali) — reservation recommended</a>
-      </div>
+    <div class="tl-item"><div class="tl-time">2:00 – 3:15 PM</div><div class="tl-title">Naschmarkt Lunch</div><div class="tl-desc">U4 → Kettenbrückengasse · Vienna's famous open-air market</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Naschmarkt,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Naschmarkt</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">3:30 – 4:45 PM</div><div class="tl-title">Belvedere Palace (€22.50)</div><div class="tl-desc">Klimt's The Kiss · Baroque gardens · Tram D → Schloss Belvedere</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Belvedere+Palace,+Prinz-Eugen-Straße+27,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Belvedere Palace</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">6:45 – 8:30 PM</div><div class="tl-title">🌅 Danube Tower Sunset (€18)</div><div class="tl-desc">U1 → Kaisermühlen VIC · Bus 92A → Donauturm · 360° panoramic views</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Donauturm,+Donauturmstraße+4,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Danube Tower</a>
     </div>
   </div>
+</div>
 
-  <!-- Day 6 Debo Lake Day -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num" style="color:var(--accent-salzburg)">Wed</div>
-      <div class="day-info">
-        <div class="day-date">Wednesday, April 8 — Debo</div>
-        <div class="day-title">St. Gilgen → Schafberg → Gmunden (Lake Traunsee)</div>
-      </div>
-      <div class="day-toggle">▾</div>
+<!-- APR 10 -->
+<div id="apr10" class="day-section">
+  <div class="city-strip strip-vienna"></div>
+  <div class="day-header"><div class="day-num">09</div><div class="day-title-wrap"><h2>Vienna — Museums &amp; Opera</h2><div class="day-meta">Friday, April 10 · Ringstrasse · Neubau · Ballet 7 PM</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">🌤️</span><div><div><span class="wx-temp">60°F / 45°F</span> <span class="wx-label">Vienna · Apr 10</span></div><div class="wx-label">Pleasant spring day · Light jacket</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌂</span><div><div><span class="wx-temp">15%</span> <span class="wx-label">Rain chance</span></div><div class="wx-label">Mostly dry — great for canal walk</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌙</span><div><div><span class="wx-temp">~50°F</span> <span class="wx-label">Evening (Opera)</span></div><div class="wx-label">Bring a wrap for the ballet outing</div></div></div>
+  </div>
+  <div class="section-label">Morning (Split Itinerary)</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">10:00 – 11:30 AM · Piyali</div><div class="tl-title">Spanish Riding School</div><div class="tl-desc">Morning Exercise at Hofburg · Legendary white Lipizzaner stallions</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Spanish+Riding+School,+Michaelerplatz+1,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Spanish Riding School</a>
     </div>
-    <div class="day-body">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">8:00 – 8:50 AM</div>
-            <div class="tl-label">Bus 150 → St. Gilgen</div>
-            <div class="tl-desc">Sit right side for lake views · Lakeside promenade walk</div>
-            <a class="map-link" href="https://maps.apple.com/?q=St+Gilgen+Austria" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              St. Gilgen
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">10:15 AM – 11:00 AM</div>
-            <div class="tl-label">Ferry → St. Wolfgang</div>
-            <a class="map-link" href="https://maps.apple.com/?q=St+Wolfgang+im+Salzkammergut+Austria" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              St. Wolfgang
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">11:20 AM – 1:20 PM</div>
-            <div class="tl-label">Schafbergbahn Cogwheel Railway</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Schafbergbahn+St+Wolfgang+Austria" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Schafbergbahn
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">4:05 – 5:45 PM</div>
-            <div class="tl-label">Lake Traunsee — Schloss Ort</div>
-            <div class="tl-desc">15 min scenic stroll to castle · lakeside promenade</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Schloss+Ort+Gmunden+Austria" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Schloss Ort, Gmunden
-            </a>
-            <a class="map-link" href="https://maps.apple.com/?q=Lake+Traunsee+Gmunden" target="_blank" style="margin-left:6px">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Lake Traunsee
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-salzburg)"></div>
-          <div class="tl-content">
-            <div class="tl-time">6:00 – 7:30 PM</div>
-            <div class="tl-label">Train back to Salzburg</div>
-          </div>
-        </div>
-      </div>
+    <div class="tl-item"><div class="tl-time">10:00 – 11:30 AM · Debo</div><div class="tl-title">Ringstrasse Walk</div><div class="tl-desc">Hofburg · Heldenplatz · Volksgarten · Vienna State Opera</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Ringstrasse,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Ringstrasse</a>
     </div>
   </div>
-</section>
-
-<!-- ==================== VIENNA ==================== -->
-<section id="vienna" class="city-section">
-  <div class="city-header">
-    <div class="city-dot" style="background:var(--accent-vienna)"></div>
-    <div>
-      <div class="city-name" style="color:var(--accent-vienna)">Vienna</div>
-      <div class="city-dates">April 8 – 10 · Hotel Royal, Singerstrasse 3</div>
+  <div class="section-label">Afternoon &amp; Evening — Together</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">11:45 AM – 2:00 PM</div><div class="tl-title">KHM Dome Café + Leopold Museum</div><div class="tl-desc">€22 + €19 · Lunch in the iconic domed café · MuseumsQuartier courtyard</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Kunsthistorisches+Museum,+Maria-Theresien-Platz,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>KHM Museum</a>
+      <a class="map-btn" href="https://maps.apple.com/?address=Leopold+Museum,+Museumsplatz+1,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Leopold Museum</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">2:00 – 3:30 PM</div><div class="tl-title">Neubau District Walk</div><div class="tl-desc">Siebensterngasse · Local boutiques · Street art murals</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Siebensterngasse,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Neubau / Siebensterngasse</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">3:30 – 5:00 PM</div><div class="tl-title">Danube Canal Walk</div><div class="tl-desc">U3 Neubaugasse → Stubentor · Street art · Canal bars</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Danube+Canal,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Danube Canal</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">7:00 PM</div><div class="tl-title">🩰 Vienna State Opera — Visionary Dances</div><div class="tl-desc">Ballet performance · Vienna State Opera</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Vienna+State+Opera,+Opernring+2,+Vienna,+Austria" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Vienna State Opera</a>
     </div>
   </div>
+</div>
 
-  <!-- Day 7 Vienna arrival (Piyali) -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num" style="color:var(--accent-vienna)">Wed</div>
-      <div class="day-info">
-        <div class="day-date">Wednesday, April 8 — Piyali</div>
-        <div class="day-title">Train to Vienna · Hofburg · Sisi Museum · Opera</div>
-      </div>
-      <div class="day-toggle">▾</div>
+<!-- APR 11 -->
+<div id="apr11" class="day-section">
+  <div class="city-strip strip-dubrovnik"></div>
+  <div class="day-header"><div class="day-num">10</div><div class="day-title-wrap"><h2>Dubrovnik — Arrival</h2><div class="day-meta">Saturday, April 11 · Old Town · Buža Bar Sunset</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">☀️</span><div><div><span class="wx-temp">66°F / 53°F</span> <span class="wx-label">Dubrovnik · Apr 11</span></div><div class="wx-label">Warm &amp; sunny — Adriatic paradise begins!</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌅</span><div><div><span class="wx-temp">Sunset ~7:50 PM</span> <span class="wx-label">Buža Bar timing</span></div><div class="wx-label">Arrive by 7 PM for perfect cliff views</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌊</span><div><div><span class="wx-temp">Sea: ~62°F</span> <span class="wx-label">Adriatic temp</span></div><div class="wx-label">Chilly but possible for a dip</div></div></div>
+  </div>
+  <div class="section-label">Flight</div>
+  <div class="transport-box">
+    <div class="route">Vienna → Dubrovnik</div>
+    <strong>Croatia/Austrian Airlines OU5507</strong> &nbsp;·&nbsp; 11:00 AM – 12:15 PM
+  </div>
+  <a class="hotel-chip" href="https://maps.apple.com/?address=Prijeko+ul.+6,+20000+Dubrovnik,+Croatia" target="_blank"><span>🏨</span> Prijeko Palace — Old Town, Dubrovnik</a>
+  <div class="section-label">Afternoon &amp; Evening</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">12:45 – 1:30 PM</div><div class="tl-title">Taxi to Pile Gate · Check-in</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Pile+Gate,+Dubrovnik,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Pile Gate</a>
     </div>
-    <div class="day-body">
-      <div class="transport-card">
-        <strong>Train Salzburg → Vienna</strong>
-        Departs 8:00 AM · Arrives ~11:00 AM · Taxi to Hotel Royal (15–20 min, ~€20)
-      </div>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-vienna)"></div>
-          <div class="tl-content">
-            <div class="tl-time">12:00 – 12:45 PM</div>
-            <div class="tl-label">St. Stephen's Cathedral</div>
-            <a class="map-link" href="https://maps.apple.com/?q=St+Stephens+Cathedral+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Stephansdom
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-vienna)"></div>
-          <div class="tl-content">
-            <div class="tl-time">1:30 – 3:30 PM</div>
-            <div class="tl-label">Hofburg Palace · Sisi Museum & Imperial Apartments</div>
-            <div class="tl-desc">Vienna Pass · Austrian National Library (State Hall) included</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Hofburg+Palace+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Hofburg Palace
-            </a>
-            <a class="map-link" href="https://maps.apple.com/?q=Austrian+National+Library+Vienna" target="_blank" style="margin-left:6px">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              National Library
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-vienna)"></div>
-          <div class="tl-content">
-            <div class="tl-time">5:00 – 6:00 PM</div>
-            <div class="tl-label">Mythos Mozart (Vienna Pass)</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Mythos+Mozart+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Mythos Mozart
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-vienna)"></div>
-          <div class="tl-content">
-            <div class="tl-time">6:15 – 8:15 PM</div>
-            <div class="tl-label">Albertina Museum</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Albertina+Museum+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Albertina Museum
-            </a>
-          </div>
-        </div>
-      </div>
+    <div class="tl-item"><div class="tl-time">2:15 – 3:15 PM</div><div class="tl-title">Lunch — Lady Pi-Pi or Bota Šare</div><div class="tl-desc">Lady Pi-Pi: traditional grilled food · Bota Šare: seafood</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Lady+Pi-Pi,+Palmotićeva+ul.+6,+Dubrovnik,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Lady Pi-Pi</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">3:15 – 6:30 PM</div><div class="tl-title">Old Town Exploration</div><div class="tl-desc">Stradun · Onofrio's Fountain · Rector's Palace · Dubrovnik Cathedral · Jesuit Steps (GoT!) · Old Harbor</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Stradun,+20000+Dubrovnik,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Stradun</a>
+      <a class="map-btn" href="https://maps.apple.com/?address=Rector's+Palace,+Pred+Dvorom+3,+Dubrovnik,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Rector's Palace</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">6:45 – 8:15 PM</div><div class="tl-title">🌅 Sunset — Buža Bar</div><div class="tl-desc">Enter through "hole-in-the-wall" from Old Town · Arrive 45–60 min before sunset</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Buza+Bar,+Crijevićeva+ul.+9,+Dubrovnik,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Buža Bar</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">8:30 PM</div><div class="tl-title">Dinner — Proto Seafood Restaurant</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Restaurant+Proto,+Ulica+Sv.+Dominika+1,+Dubrovnik,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Restaurant Proto</a>
     </div>
   </div>
+</div>
 
-  <!-- Day 8 Vienna -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num" style="color:var(--accent-vienna)">Thu</div>
-      <div class="day-info">
-        <div class="day-date">Thursday, April 9</div>
-        <div class="day-title">Schönbrunn · Naschmarkt · Belvedere · Danube Tower</div>
-      </div>
-      <div class="day-toggle">▾</div>
+<!-- APR 12 -->
+<div id="apr12" class="day-section">
+  <div class="city-strip strip-dubrovnik"></div>
+  <div class="day-header"><div class="day-num">11</div><div class="day-title-wrap"><h2>Elaphiti Islands &amp; Old Town Walls</h2><div class="day-meta">Sunday, April 12 · Mt Srđ Cable Car at Sunset</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">⛵</span><div><div><span class="wx-temp">67°F / 54°F</span> <span class="wx-label">Dubrovnik · Apr 12</span></div><div class="wx-label">Ideal boat trip weather · Sun expected</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌊</span><div><div><span class="wx-temp">Sea: ~62°F</span> <span class="wx-label">Elaphiti Islands</span></div><div class="wx-label">Light breeze on the water</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌅</span><div><div><span class="wx-temp">Sunset ~7:51 PM</span> <span class="wx-label">Mt Srđ timing</span></div><div class="wx-label">Take cable car by 7:30 PM for best light</div></div></div>
+  </div>
+  <div class="section-label">Morning — Island Tour</div>
+  <div class="transport-box">
+    <div class="route">Elaphiti Islands Boat Tour</div>
+    <strong>Start:</strong> 9:25 AM · Returns ~1:30 PM<br>
+    <strong>Meeting Point:</strong> Obala Stjepana Radića 21, 20000 Dubrovnik
+  </div>
+  <a class="map-btn" href="https://maps.apple.com/?address=Obala+Stjepana+Radića+21,+20000+Dubrovnik,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Boat Dock Meeting Point</a>
+  <div class="section-label">Afternoon &amp; Evening</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">4:45 – 6:45 PM</div><div class="tl-title">Old Town Walls Walk</div><div class="tl-desc">1.5–2 hrs at relaxed pace · Fort Minčeta (highest point) · Rooftop views · Adriatic in golden light</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Dubrovnik+City+Walls,+Dubrovnik,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Old Town Walls</a>
     </div>
-    <div class="day-body">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-vienna)"></div>
-          <div class="tl-content">
-            <div class="tl-time">12:30 – 1:45 PM</div>
-            <div class="tl-label">Schönbrunn Gardens & Gloriette (€15)</div>
-            <div class="tl-desc">U1 → Karlsplatz → U4 → Schönbrunn · Climb to the Gloriette viewpoint</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Schonbrunn+Palace+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Schönbrunn Palace
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-vienna)"></div>
-          <div class="tl-content">
-            <div class="tl-time">2:00 – 3:15 PM</div>
-            <div class="tl-label">Naschmarkt Lunch</div>
-            <div class="tl-desc">U4 → Kettenbrückengasse · Vienna's famous open-air food market</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Naschmarkt+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Naschmarkt
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-vienna)"></div>
-          <div class="tl-content">
-            <div class="tl-time">3:30 – 4:45 PM</div>
-            <div class="tl-label">Belvedere Palace (€22.50)</div>
-            <div class="tl-desc">Klimt's "The Kiss" · Baroque gardens · Tram D → Schloss Belvedere</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Belvedere+Palace+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Belvedere Palace
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--gold)"></div>
-          <div class="tl-content">
-            <div class="tl-time">6:45 – 8:30 PM</div>
-            <div class="tl-label">Danube Tower Sunset (€18)</div>
-            <div class="tl-desc">U1 → Kaisermühlen VIC · Bus 92A → Donauturm</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Donauturm+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Donauturm
-            </a>
-          </div>
-        </div>
-      </div>
+    <div class="tl-item"><div class="tl-time">7:00 PM onwards</div><div class="tl-title">🌅 Mt Srđ Cable Car Sunset</div><div class="tl-desc">5–10 min cable car ride · Panoramic views of Dubrovnik &amp; islands at golden hour</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Dubrovnik+Cable+Car,+Petra+Krešimira+IV+br.+1,+Dubrovnik,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Mt Srđ Cable Car</a>
     </div>
   </div>
+</div>
 
-  <!-- Day 9 Vienna -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num" style="color:var(--accent-vienna)">Fri</div>
-      <div class="day-info">
-        <div class="day-date">Friday, April 10</div>
-        <div class="day-title">Ringstrasse · Museums · Neubau · Danube Canal · Opera Ballet</div>
-      </div>
-      <div class="day-toggle">▾</div>
-    </div>
-    <div class="day-body">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-vienna)"></div>
-          <div class="tl-content">
-            <div class="tl-time">10:00 – 11:30 AM (Piyali)</div>
-            <div class="tl-label">Spanish Riding School Morning Exercise</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Spanish+Riding+School+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Spanish Riding School
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-vienna)"></div>
-          <div class="tl-content">
-            <div class="tl-time">10:00 – 11:30 AM (Debo)</div>
-            <div class="tl-label">Ringstrasse Walk — Hofburg · Heldenplatz · Volksgarten</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Heldenplatz+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Heldenplatz
-            </a>
-            <a class="map-link" href="https://maps.apple.com/?q=Volksgarten+Vienna" target="_blank" style="margin-left:6px">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Volksgarten
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-vienna)"></div>
-          <div class="tl-content">
-            <div class="tl-time">11:45 AM – 2:00 PM</div>
-            <div class="tl-label">Kunsthistorisches Museum + Leopold Museum</div>
-            <div class="tl-desc">Lunch in the KHM Dome Café · relax in MuseumsQuartier courtyard</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Kunsthistorisches+Museum+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              KHM
-            </a>
-            <a class="map-link" href="https://maps.apple.com/?q=Leopold+Museum+Vienna" target="_blank" style="margin-left:6px">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Leopold Museum
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-vienna)"></div>
-          <div class="tl-content">
-            <div class="tl-time">2:00 – 3:30 PM</div>
-            <div class="tl-label">Neubau District Walk — Siebensterngasse</div>
-            <div class="tl-desc">Local boutiques · street art murals</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Siebensterngasse+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Neubau / Siebensterngasse
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-vienna)"></div>
-          <div class="tl-content">
-            <div class="tl-time">3:30 – 5:00 PM</div>
-            <div class="tl-label">Danube Canal — Street Art & Bars</div>
-            <div class="tl-desc">U3 from Neubaugasse → Stubentor</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Donaukanal+Vienna" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Danube Canal
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--gold)"></div>
-          <div class="tl-content">
-            <div class="tl-time">7:00 PM</div>
-            <div class="tl-label">Vienna State Opera — Ballet: Visionary Dances</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Vienna+State+Opera" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Vienna State Opera
-            </a>
-          </div>
-        </div>
-      </div>
+<!-- APR 13 -->
+<div id="apr13" class="day-section">
+  <div class="city-strip strip-dubrovnik"></div>
+  <div class="day-header"><div class="day-num">12</div><div class="day-title-wrap"><h2>Lokrum Island &amp; Cavtat</h2><div class="day-meta">Monday, April 13 · Last full day in paradise</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">☀️</span><div><div><span class="wx-temp">68°F / 55°F</span> <span class="wx-label">Dubrovnik · Apr 13</span></div><div class="wx-label">Warmest day — perfect for island &amp; swim</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🏝️</span><div><div><span class="wx-temp">Lokrum: ~65°F</span> <span class="wx-label">Island temp</span></div><div class="wx-label">Shaded pine forest keeps it comfortable</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">🌅</span><div><div><span class="wx-temp">Cavtat sunset ~7:52 PM</span> <span class="wx-label">Quieter than Dubrovnik</span></div><div class="wx-label">Sit by the water with a drink 🍷</div></div></div>
+  </div>
+  <div class="section-label">Morning — Lokrum Island</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">9:15 AM – 12:30 PM</div><div class="tl-title">Lokrum Island</div><div class="tl-desc">Ferry 10–15 min from Old Harbor · Pine forest walks · Benedictine Monastery ruins · Free-roaming peacocks 🦚 · Dead Sea saltwater lagoon swim</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Lokrum+Island,+Dubrovnik,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Lokrum Island</a>
     </div>
   </div>
-</section>
-
-<!-- ==================== DUBROVNIK ==================== -->
-<section id="dubrovnik" class="city-section">
-  <div class="city-header">
-    <div class="city-dot" style="background:var(--accent-dubrovnik)"></div>
-    <div>
-      <div class="city-name" style="color:var(--accent-dubrovnik)">Dubrovnik</div>
-      <div class="city-dates">April 11 – 13 · Prijeko Palace, Old Town</div>
+  <div class="section-label">Afternoon — Cavtat Village</div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">2:15 – 2:45 PM</div><div class="tl-title">Taxi to Cavtat (~25–30 min)</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Cavtat,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Cavtat</a>
     </div>
+    <div class="tl-item"><div class="tl-time">3:00 – 6:30 PM</div><div class="tl-title">Cavtat Exploration</div><div class="tl-desc">Harbor promenade · Coastal path walk · Adriatic swimming · Račić Mausoleum (great views)</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Cavtat+Harbor+Promenade,+Cavtat,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Cavtat Harbor</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">6:30 – 7:30 PM</div><div class="tl-title">🌅 Sunset Dinner — Bugenvila or Konoba Galija</div><div class="tl-desc">Bugenvila: refined, beautiful setting · Konoba Galija: more local feel</div>
+      <a class="map-btn" href="https://maps.apple.com/?address=Restaurant+Bugenvila,+Obala+A.+Starčevića+9,+Cavtat,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Bugenvila</a>
+    </div>
+    <div class="tl-item"><div class="tl-time">8:00 – 8:45 PM</div><div class="tl-title">Return to Dubrovnik</div></div>
   </div>
+</div>
 
-  <!-- Day 10 -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num" style="color:var(--accent-dubrovnik)">Sat</div>
-      <div class="day-info">
-        <div class="day-date">Saturday, April 11</div>
-        <div class="day-title">Fly In · Old Town · Buža Bar Sunset · Proto Dinner</div>
-      </div>
-      <div class="day-toggle">▾</div>
-    </div>
-    <div class="day-body">
-      <div class="transport-card">
-        <strong>Croatia Airlines OU5507</strong>
-        Vienna 11:00 AM → Dubrovnik 12:15 PM · Taxi to Pile Gate (~25–30 min)
-      </div>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-dubrovnik)"></div>
-          <div class="tl-content">
-            <div class="tl-time">1:30 – 2:15 PM</div>
-            <div class="tl-label">Check-in — Prijeko Palace</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Prijeko+Palace+Dubrovnik" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Prijeko Palace
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-dubrovnik)"></div>
-          <div class="tl-content">
-            <div class="tl-time">3:15 – 6:30 PM</div>
-            <div class="tl-label">Old Town Exploration</div>
-            <div class="tl-desc">Pile Gate → Stradun → Onofrio's Fountain → Rector's Palace → Dubrovnik Cathedral → Jesuit Steps (GoT) → Old Harbor</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Pile+Gate+Dubrovnik" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Pile Gate
-            </a>
-            <a class="map-link" href="https://maps.apple.com/?q=Stradun+Dubrovnik" target="_blank" style="margin-left:6px">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Stradun
-            </a>
-            <a class="map-link" href="https://maps.apple.com/?q=Rector+Palace+Dubrovnik" target="_blank" style="margin-left:6px">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Rector's Palace
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--gold)"></div>
-          <div class="tl-content">
-            <div class="tl-time">6:45 – 8:15 PM</div>
-            <div class="tl-label">Sunset at Buža Bar (hole-in-the-wall cliff bar)</div>
-            <div class="tl-desc">Arrive 45–60 min before sunset to secure a cliff-side spot</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Buza+Bar+Dubrovnik" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Buža Bar
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="food-row">
-        <div class="section-label" style="width:100%;margin:0 0 6px">Dining</div>
-        <a class="food-pill lunch" href="https://maps.apple.com/?q=Lady+Pi+Pi+Dubrovnik" target="_blank">🍗 Lady Pi-Pi (lunch)</a>
-        <a class="food-pill lunch" href="https://maps.apple.com/?q=Bota+Sare+Dubrovnik" target="_blank">🦞 Bota Šare (seafood lunch)</a>
-        <a class="food-pill dinner" href="https://maps.apple.com/?q=Proto+Restaurant+Dubrovnik" target="_blank">🐟 Proto (seafood dinner)</a>
-      </div>
-    </div>
+<!-- APR 14 -->
+<div id="apr14" class="day-section">
+  <div class="city-strip strip-transit"></div>
+  <div class="day-header"><div class="day-num">13</div><div class="day-title-wrap"><h2>Homeward Bound</h2><div class="day-meta">Tuesday, April 14 · Dubrovnik → Istanbul → SFO</div></div></div>
+  <div class="weather-bar">
+    <div class="wx-badge"><span class="wx-icon">🌤️</span><div><div><span class="wx-temp">Dubrovnik: 66°F</span> <span class="wx-label">Departure morning</span></div><div class="wx-label">Beautiful send-off — one last look at the Adriatic</div></div></div>
+    <div class="wx-badge"><span class="wx-icon">✈️</span><div><div><span class="wx-temp">Istanbul: ~62°F</span> <span class="wx-label">Layover · Apr 14</span></div><div class="wx-label">Mild, no weather concerns for transit</div></div></div>
   </div>
-
-  <!-- Day 11 -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num" style="color:var(--accent-dubrovnik)">Sun</div>
-      <div class="day-info">
-        <div class="day-date">Sunday, April 12</div>
-        <div class="day-title">Elaphiti Islands · Old Town Walls · Mt. Srđ Cable Car</div>
-      </div>
-      <div class="day-toggle">▾</div>
-    </div>
-    <div class="day-body">
-      <div class="highlight">
-        📍 Boat Meeting Point 9:25 AM — Obala Stjepana Radića 21, Dubrovnik
-      </div>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-dubrovnik)"></div>
-          <div class="tl-content">
-            <div class="tl-time">9:30 AM – 1:30 PM</div>
-            <div class="tl-label">Elaphiti Islands Boat Trip</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Elaphiti+Islands+Croatia" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Elaphiti Islands
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-dubrovnik)"></div>
-          <div class="tl-content">
-            <div class="tl-time">4:45 – 6:45 PM</div>
-            <div class="tl-label">Old Town Walls Walk (Golden Hour)</div>
-            <div class="tl-desc">Enter ~4:45 PM · ~1.5–2 hrs · Fort Minčeta · Adriatic coastline views</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Dubrovnik+City+Walls" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Old Town Walls
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--gold)"></div>
-          <div class="tl-content">
-            <div class="tl-time">7:00 PM →</div>
-            <div class="tl-label">Mt. Srđ Cable Car — Sunset</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Mount+Srd+Cable+Car+Dubrovnik" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Mt. Srđ Cable Car
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="food-row">
-        <div class="section-label" style="width:100%;margin:0 0 6px">Dining options</div>
-        <a class="food-pill lunch" href="https://maps.apple.com/?q=Lady+Pi+Pi+Dubrovnik" target="_blank">🍗 Lady Pi-Pi</a>
-        <a class="food-pill lunch" href="https://maps.apple.com/?q=Taj+Mahal+Restaurant+Dubrovnik" target="_blank">🍛 Taj Mahal</a>
-        <a class="food-pill lunch" href="https://maps.apple.com/?q=Pizzeria+Mirakul+Dubrovnik" target="_blank">🍕 Pizzeria Mirakul</a>
-      </div>
-    </div>
+  <div class="section-label">Flights — Confirmation SNY4RB</div>
+  <div class="transport-box">
+    <div class="route">Dubrovnik → Istanbul → SFO</div>
+    <strong>Turkish Airlines TK 438</strong> &nbsp;·&nbsp; Dubrovnik 9:15 AM → Istanbul 12:10 PM<br>
+    <strong>Turkish Airlines TK 79</strong> &nbsp;·&nbsp; Istanbul 1:15 PM → SFO 4:45 PM
   </div>
-
-  <!-- Day 12 -->
-  <div class="day-card">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num" style="color:var(--accent-dubrovnik)">Mon</div>
-      <div class="day-info">
-        <div class="day-date">Monday, April 13</div>
-        <div class="day-title">Lokrum Island · Cavtat · Sunset Dinner</div>
-      </div>
-      <div class="day-toggle">▾</div>
-    </div>
-    <div class="day-body">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-dubrovnik)"></div>
-          <div class="tl-content">
-            <div class="tl-time">9:15 AM – 12:30 PM</div>
-            <div class="tl-label">Lokrum Island</div>
-            <div class="tl-desc">10–15 min ferry · Benedictine Monastery ruins · free-roaming peacocks 🦚 · saltwater "Dead Sea" lagoon swim</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Lokrum+Island+Croatia" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Lokrum Island
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-dubrovnik)"></div>
-          <div class="tl-content">
-            <div class="tl-time">2:15 – 3:00 PM</div>
-            <div class="tl-label">Travel to Cavtat (taxi, 25–30 min)</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Cavtat+Croatia" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Cavtat
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--accent-dubrovnik)"></div>
-          <div class="tl-content">
-            <div class="tl-time">3:00 – 6:30 PM</div>
-            <div class="tl-label">Cavtat Exploration</div>
-            <div class="tl-desc">Harbor promenade · coastal path walk · Racic Mausoleum views · Adriatic swimming</div>
-            <a class="map-link" href="https://maps.apple.com/?q=Racic+Mausoleum+Cavtat" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Racic Mausoleum
-            </a>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="color:var(--gold)"></div>
-          <div class="tl-content">
-            <div class="tl-time">6:30 – 7:30 PM</div>
-            <div class="tl-label">Sunset in Cavtat — sit by the water</div>
-          </div>
-        </div>
-      </div>
-      <div class="food-row">
-        <div class="section-label" style="width:100%;margin:0 0 6px">Cavtat Dining</div>
-        <a class="food-pill dinner" href="https://maps.apple.com/?q=Bugenvila+Restaurant+Cavtat" target="_blank">🌸 Bugenvila (refined setting)</a>
-        <a class="food-pill dinner" href="https://maps.apple.com/?q=Konoba+Galija+Cavtat" target="_blank">🐟 Konoba Galija (local feel)</a>
-      </div>
-    </div>
-  </div>
-</section>
+  <a class="map-btn" href="https://maps.apple.com/?address=Dubrovnik+Airport,+Cilipi,+Croatia" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Dubrovnik Airport</a>
+</div>
 
 </main>
 
-<footer class="page-footer">
-  ✈ Confirmation SNY4RB &nbsp;·&nbsp; April 2 – 14, 2025 &nbsp;·&nbsp; Debo & Piyali
-</footer>
-
 <script>
-  function showCity(id) {
-    document.querySelectorAll('.city-section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.city-tab').forEach(t => t.classList.remove('active'));
+  function showTab(id, el) {
+    document.querySelectorAll('.day-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    event.currentTarget.classList.add('active');
+    el.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
-  function toggleDay(header) {
-    const card = header.parentElement;
-    card.classList.toggle('open');
+  function showTabById(id) {
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.day-section');
+    const ids = Array.from(sections).map(s => s.id);
+    const idx = ids.indexOf(id);
+    sections.forEach(s => s.classList.remove('active'));
+    tabs.forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if (tabs[idx]) tabs[idx].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
-  // Open first card in each section on tab switch
-  document.querySelectorAll('.city-section').forEach(section => {
-    const first = section.querySelector('.day-card');
-    if (first) first.classList.add('open');
-  });
 </script>
 </body>
 </html>
